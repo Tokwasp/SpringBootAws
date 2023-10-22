@@ -20,10 +20,8 @@ public class PostsService {
     private final PostsRepositiory postsRepositiory;
 
     @Transactional
-    public Long save(PostsSaveRequestDto requestDto){
-        return postsRepositiory.save(requestDto.toEntity()).getId();
-    }
-
+    public Long save(PostsSaveRequestDto requestDto) {return postsRepositiory.save(requestDto.toEntity()).getId();}
+    
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){
         Posts posts = postsRepositiory.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
